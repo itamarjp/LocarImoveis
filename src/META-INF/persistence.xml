@@ -17,7 +17,7 @@
 			<property name="javax.persistence.jdbc.password" value="pugh3ieXpugh3ieX"/>
 			<property name="hibernate.hbm2ddl.auto" value="update"/> 
 		</properties>
-	</persistence-unit></persistence>
+	</persistence-unit>
 	
  <!-- http://ns1.ispbrasil.com.br/phpmyadmin/index.php -->
  <!-- usuario: imobiliaria -->

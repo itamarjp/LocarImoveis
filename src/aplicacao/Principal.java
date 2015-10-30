@@ -16,8 +16,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 		System.out.println("Alo");
-		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("meujpa");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("mysql-remoto");
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("meujpa");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         Usuario usr1 = new Usuario(null, "Itamar","000", "34-123", "itamar@ispbrasil.com.br",  "x");

@@ -1,30 +1,39 @@
 package dominio;
 
+/**
+ * @author Renzo Rodrigues
+ */
 import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Foto")
+@Table(name="tb_fotos")
 public class Foto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)	
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codFoto;
 	private String caminho;
+	
+	@ManyToOne
+	@JoinColumn(name="anuncio")
+	private Anuncio anuncio;
 	
 	public Foto() {
 	}
 
-	public Foto(Integer codFoto, String caminho) {
-		super();
+	public Foto(Integer codFoto, String caminho, Anuncio anuncio) {
 		this.codFoto = codFoto;
 		this.caminho = caminho;
+		this.anuncio = anuncio;
 	}
 
 	public Integer getCodFoto() {
@@ -41,6 +50,14 @@ public class Foto implements Serializable{
 
 	public void setCaminho(String caminho) {
 		this.caminho = caminho;
+	}
+
+	public Anuncio getAnuncio() {
+		return anuncio;
+	}
+
+	public void setAnuncio(Anuncio anuncio) {
+		this.anuncio = anuncio;
 	}
 
 	@Override

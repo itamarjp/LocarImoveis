@@ -1,5 +1,8 @@
 package dominio;
 
+/**
+ * @author Renzo Rodrigues
+ */
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,29 +12,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- * @author Renzo Rodrigues
- */
 @Entity
-@Table(name="Usuario")
+@Table(name="tb_usuarios")
 public class Usuario implements Serializable {
-    private static final long serialVersionUID  = 1L;
+	private static final long serialVersionUID  = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codUsuario;
+    
     private String nome;
     private String cpf;
     private String celular;
     private String email;
     private String senha;
         
+    @OneToMany(mappedBy="usuario")
     private List<Favorito> favoritos;
+    
+    @OneToMany(mappedBy="usuario")
     private List<Locacao> locacoesComoLocatario;
+    
+    @OneToMany(mappedBy="anuncio")
     private List<Locacao> locacoesComoLocador;
+    
+    @OneToMany(mappedBy="usuario")
     private List<Anuncio> anuncios;
+    
+    @OneToMany(mappedBy="anuncio")
     private List<Questao> questoes;
 
     public Usuario() {

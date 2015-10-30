@@ -14,38 +14,33 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_favoritos")
-public class Favorito implements Serializable{
+@Table(name="tb_horariosvisitas")
+public class HorarioVisita implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codFavorito;
+	private Integer codHorarioVisita;
 	
 	@ManyToOne
 	@JoinColumn(name="anuncio")
 	private Anuncio anuncio;
-	
-	@ManyToOne
-	@JoinColumn(name="usuario")
-	private Usuario usuario;
 
-	public Favorito() {
+	public HorarioVisita() {
 	}
 
-	public Favorito(Integer codFavorito, Anuncio anuncio, Usuario usuario) {
+	public HorarioVisita(Integer codHorarioVisita, Anuncio anuncio) {
 		super();
-		this.codFavorito = codFavorito;
+		this.codHorarioVisita = codHorarioVisita;
 		this.anuncio = anuncio;
-		this.usuario = usuario;
 	}
 
-	public Integer getCodFavorito() {
-		return codFavorito;
+	public Integer getCodHorarioVisita() {
+		return codHorarioVisita;
 	}
 
-	public void setCodFavorito(Integer codFavorito) {
-		this.codFavorito = codFavorito;
+	public void setCodHorarioVisita(Integer codHorarioVisita) {
+		this.codHorarioVisita = codHorarioVisita;
 	}
 
 	public Anuncio getAnuncio() {
@@ -56,24 +51,16 @@ public class Favorito implements Serializable{
 		this.anuncio = anuncio;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	@Override
 	public String toString() {
-		return "Favorito [codFavorito=" + codFavorito + "]";
+		return "HorarioVisita [codHorarioVisita=" + codHorarioVisita + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codFavorito == null) ? 0 : codFavorito.hashCode());
+		result = prime * result + ((codHorarioVisita == null) ? 0 : codHorarioVisita.hashCode());
 		return result;
 	}
 
@@ -85,11 +72,11 @@ public class Favorito implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Favorito other = (Favorito) obj;
-		if (codFavorito == null) {
-			if (other.codFavorito != null)
+		HorarioVisita other = (HorarioVisita) obj;
+		if (codHorarioVisita == null) {
+			if (other.codHorarioVisita != null)
 				return false;
-		} else if (!codFavorito.equals(other.codFavorito))
+		} else if (!codHorarioVisita.equals(other.codHorarioVisita))
 			return false;
 		return true;
 	}

@@ -35,6 +35,10 @@ public class Locacao implements Serializable {
         this.avaliacaoLocatario = avaliacaoLocatario;
     }
 
+public Locacao() {
+	// TODO Auto-generated constructor stub
+	//fazer este construtor corretamente
+}
 
 public Locacao(Integer codLocacao, Date dataLocacao, Integer avaliacaoLocador, Integer avaliacaoLocatario,
 			Usuario locatario, Usuario locador) {

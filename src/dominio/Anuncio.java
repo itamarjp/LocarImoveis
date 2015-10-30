@@ -26,6 +26,7 @@ public class Anuncio implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codAnuncio;
+	
 	private String bairro;
 	private String cidade;
 	private String descricao;
@@ -58,7 +59,6 @@ public class Anuncio implements Serializable{
 
 	public Anuncio(Integer codAnuncio, String bairro, String cidade, String descricao, BigDecimal vlrLocacao,
 			Date dataIni, Date dataFim, Usuario usuario) {
-		super();
 		this.codAnuncio = codAnuncio;
 		this.bairro = bairro;
 		this.cidade = cidade;

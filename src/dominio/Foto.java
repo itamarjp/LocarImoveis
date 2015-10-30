@@ -21,6 +21,7 @@ public class Foto implements Serializable{
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codFoto;
+	
 	private String caminho;
 	
 	@ManyToOne

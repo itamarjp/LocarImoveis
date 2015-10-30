@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Locacao")
+@Table(name="tb_locacao")
 public class Locacao implements Serializable {
 	private static final long serialVersionUID = 1L;
     @Id
@@ -22,18 +22,13 @@ public class Locacao implements Serializable {
     private Integer avaliacaoLocador;
     private Integer avaliacaoLocatario;
 	@ManyToOne
-	@JoinColumn(name="usuario",insertable=false, updatable=false)
+	@JoinColumn(name="locatario",insertable=true, updatable=true)
     private Usuario locatario;
 	@ManyToOne
-	@JoinColumn(name="usuario",insertable=false, updatable=false)
-
+	@JoinColumn(name="locador",insertable=true, updatable=true)
     private Usuario locador;
 
-    public Locacao(Date DataLocacao, Integer avaliacaoLocador, Integer avaliacaoLocatario) {
-        this.DataLocacao = DataLocacao;
-        this.avaliacaoLocador = avaliacaoLocador;
-        this.avaliacaoLocatario = avaliacaoLocatario;
-    }
+    
 
 public Locacao() {
 	// TODO Auto-generated constructor stub
@@ -42,7 +37,6 @@ public Locacao() {
 
 public Locacao(Integer codLocacao, Date dataLocacao, Integer avaliacaoLocador, Integer avaliacaoLocatario,
 			Usuario locatario, Usuario locador) {
-		super();
 		CodLocacao = codLocacao;
 		DataLocacao = dataLocacao;
 		this.avaliacaoLocador = avaliacaoLocador;

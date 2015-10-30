@@ -6,7 +6,20 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/LocarImoveisDB"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="123"/>
-
+			<property name="hibernate.hbm2ddl.auto" value="update"/> 
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="mysql-remoto" transaction-type="RESOURCE_LOCAL">
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://208.53.137.76/imobiliaria"/>
+			<property name="javax.persistence.jdbc.user" value="imobiliaria"/>
+			<property name="javax.persistence.jdbc.password" value="pugh3ieXpugh3ieX"/>
 			<property name="hibernate.hbm2ddl.auto" value="update"/> 
 		</properties>
 	</persistence-unit></persistence>
+	
+ <!-- http://ns1.ispbrasil.com.br/phpmyadmin/index.php -->
+ <!-- usuario: imobiliaria -->
+ <!-- senha: pugh3ieXpugh3ieX -->
+</persistence>

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +21,12 @@ public class Locacao implements Serializable {
     private Date DataLocacao;
     private Integer avaliacaoLocador;
     private Integer avaliacaoLocatario;
+	@ManyToOne
+	@JoinColumn(name="usuario",insertable=false, updatable=false)
     private Usuario locatario;
+	@ManyToOne
+	@JoinColumn(name="usuario",insertable=false, updatable=false)
+
     private Usuario locador;
 
     public Locacao(Date DataLocacao, Integer avaliacaoLocador, Integer avaliacaoLocatario) {

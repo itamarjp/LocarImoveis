@@ -7,6 +7,6 @@
 			<property name="javax.persistence.jdbc.user" value="imobiliaria"/>
 			<property name="javax.persistence.jdbc.password" value="pugh3ieXpugh3ieX"/>
 
-			<property name="hibernate.hbm2ddl.auto" value="update"/> 
+			<property name="hibernate.hbm2ddl.auto" value="drop-and-create"/> 
 		</properties>
 	</persistence-unit></persistence>

@@ -33,10 +33,10 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy="usuario")
     private List<Favorito> favoritos;
     
-    @OneToMany(mappedBy="usuario")
+    @OneToMany(mappedBy="locador")
     private List<Locacao> locacoesComoLocatario;
     
-    @OneToMany(mappedBy="anuncio")
+    @OneToMany(mappedBy="locatario")
     private List<Locacao> locacoesComoLocador;
     
     @OneToMany(mappedBy="usuario")

@@ -1,7 +1,7 @@
 package dominio;
 
 /**
- * @author Renzo Rodrigues
+ * @author Neirivon Elias Cardoso
  */
 import java.io.Serializable;
 

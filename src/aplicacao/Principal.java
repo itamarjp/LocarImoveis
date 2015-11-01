@@ -15,13 +15,20 @@ import dominio.Usuario;
 public class Principal {
 
 	public static void main(String[] args) {
+		
 		System.out.println("Alo");
+		
 		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("mysql-remoto");
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("meujpa");
-        EntityManager em = emf.createEntityManager();
+        
+		EntityManager em = emf.createEntityManager();
+        
         em.getTransaction().begin();
+        
         Usuario usr1 = new Usuario(null, "Itamar","000", "34-123", "itamar@ispbrasil.com.br",  "x");
         em.persist(usr1);
+        
         Usuario usr2 = new Usuario(null, "xiquinho","000", "34-123", "xiquinho@iftm.edu.br",  "x");
         em.persist(usr2);
         
@@ -34,13 +41,11 @@ public class Principal {
         Locacao l1 = new Locacao(null, new Date(), 1, 1, usr1, usr2);
         em.persist(l1);        
 
-
-
-        
         em.getTransaction().commit();
 		
        em.close();
        emf.close();
+       
 		System.out.println("Bye");
 
 	}

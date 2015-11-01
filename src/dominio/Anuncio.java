@@ -1,8 +1,9 @@
 package dominio;
 
-/**
- * @author Renzo Rodrigues
+/*
+ * @author Eduardo V. Rocha
  */
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;

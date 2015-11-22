@@ -8,11 +8,9 @@ import java.util.List;
 
 import dao.AnuncioDao;
 import dao.DaoFactory;
-import dao.jpa.EM;
-
+import dao.impl.EM;
 import dominio.Anuncio;
 import servico.AnuncioServico;
-import servico.ServicoException;
 
 public class AnuncioServicoImpl implements AnuncioServico {
 	
@@ -25,7 +23,7 @@ public class AnuncioServicoImpl implements AnuncioServico {
 	public void inserirAtualizar(Anuncio x) {
 		EM.getLocalEm().getTransaction().begin();
 		dao.inserirAtualizar(x);
-		EM.getLocalEm().getTransaction().begin();
+		EM.getLocalEm().getTransaction().commit();
 	}
 	
 	@Override
@@ -41,7 +39,7 @@ public class AnuncioServicoImpl implements AnuncioServico {
 	}
 
 	@Override
-	public void inserirAnuncio(Anuncio x) throws ServicoException {
+	public void inserirAnuncio(Anuncio x) {
 		// TODO Auto-generated method stub
 		
 	}

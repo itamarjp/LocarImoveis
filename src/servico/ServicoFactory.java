@@ -1,13 +1,18 @@
 package servico;
 
-/*
- * @author Eduardo V. Rocha
- */
-
-import servico.AnuncioServicoImpl;
+import servico.impl.*;
 
 public class ServicoFactory {
-	public static AnuncioServicoImpl criarAnuncio() {
+	public static AnuncioServico criarAnuncioServico() {
 		return new AnuncioServicoImpl();
 	}
+	
+	public static UsuarioServico criarUsuarioServico() {
+		return new UsuarioServicoImpl();
+	}
+	
+	
 }
+
+
+

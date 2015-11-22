@@ -1,15 +1,15 @@
 package servico.impl;
 
 import dao.HorarioVisitaDao;
+import dao.impl.EM;
 
 import java.time.*;
 import java.util.List;
 
 import dao.DaoFactory;
-import dao.jpa.EM;
 import dominio.HorarioVisita;
 import servico.HorarioVisitaServico;
-import servico.ServicoException;
+
 
 public class HorarioVisitaServicoImpl implements HorarioVisitaServico {
 
@@ -44,7 +44,7 @@ public class HorarioVisitaServicoImpl implements HorarioVisitaServico {
 	}
 
 	@Override
-	public void inserirHorarioVisita(HorarioVisita x) throws ServicoException {
+	public void inserirHorarioVisita(HorarioVisita x){
 		// TODO Auto-generated method stub
 		
 	}

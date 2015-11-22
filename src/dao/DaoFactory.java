@@ -1,20 +1,20 @@
 package dao;
 
-/**
- * @authors Eduardo V. Rocha, Neirivon Elias Cardoso
- * 
- */
+import dao.UsuarioDao;
 
-import dao.jpa.AnuncioDaoImpl;
-import dao.jpa.HorarioVisitaDaoImpl;;
+import dao.impl.*;
 
 public class DaoFactory {
+
+	public static UsuarioDao criarUsuario() {
+		return new UsuarioDaoImpl();
+	}
     public static AnuncioDao criarAnuncioDao() {
         return new AnuncioDaoImpl();
     }
-    
+
 	public static HorarioVisitaDao criarHorarioVisitaDao() {
 		return new HorarioVisitaDaoImpl();
 	}
-    
+	
 }

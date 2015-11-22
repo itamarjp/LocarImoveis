@@ -7,7 +7,7 @@ import dominio.HorarioVisita;;
 
 public interface HorarioVisitaServico {
 
-	public void inserirHorarioVisita(HorarioVisita x) throws ServicoException;
+	public void inserirHorarioVisita(HorarioVisita x);
 	public void excluir(HorarioVisita x);
 	public HorarioVisita buscar(int id);
 	public List<HorarioVisita> buscarTodos();

@@ -10,11 +10,6 @@ public interface AnuncioServico {
 	public void excluir(Anuncio x);
 	public Anuncio buscar(int id);
 	public List<Anuncio> buscarTodos();
-	
-//	public static List<Anuncio> buscarPorDataHorario(LocalDateTime horario) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-	
+		
 	void inserirAtualizar(Anuncio x);
 }

@@ -5,9 +5,11 @@ import java.util.Date;
 
 import dominio.Anuncio;
 import dominio.Foto;
+import dominio.Locacao;
 import dominio.Usuario;
 import servico.AnuncioServico;
 import servico.FotoServico;
+import servico.LocacaoServico;
 import servico.ServicoFactory;
 import servico.UsuarioServico;
 
@@ -35,10 +37,12 @@ public class Principal {
         Foto f1 = new Foto(null, "/Foto.img", an1);
         fs.inserirAtualizar(f1);
      
-        /*
+        LocacaoServico ls = ServicoFactory.criarLocacaoServico();
+        
         Locacao l1 = new Locacao(null, new Date(), 1, 1, usr1, usr2);
-        em.persist(l1);        
-       */
+
+        ls.inserirAtualizar(l1);
+
 		System.out.println("Bye");
 
 	}

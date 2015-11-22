@@ -21,5 +21,9 @@ public class DaoFactory {
 		return new FotoDaoImpl();
 	}
 
+	public static LocacaoDao criarLocacaoDao() {
+		return new LocacaoDaoImpl();
+	}
+
 	
 }

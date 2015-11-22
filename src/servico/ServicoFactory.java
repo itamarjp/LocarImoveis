@@ -15,6 +15,9 @@ public class ServicoFactory {
 		return new FotoServicoImpl();
 	}
 	
+	public static LocacaoServico criarLocacaoServico() {
+		return new LocacaoServicoImpl();
+	}
 	
 }
 

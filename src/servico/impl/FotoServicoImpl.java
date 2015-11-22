@@ -1,6 +1,5 @@
 package servico.impl;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import dao.DaoFactory;

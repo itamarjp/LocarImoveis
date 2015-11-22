@@ -11,6 +11,10 @@ public class ServicoFactory {
 		return new UsuarioServicoImpl();
 	}
 	
+	public static FotoServico criarFotoServico() {
+		return new FotoServicoImpl();
+	}
+	
 	
 }
 

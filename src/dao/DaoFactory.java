@@ -16,5 +16,10 @@ public class DaoFactory {
 	public static HorarioVisitaDao criarHorarioVisitaDao() {
 		return new HorarioVisitaDaoImpl();
 	}
+
+	public static FotoDao criarFotoDao() {
+		return new FotoDaoImpl();
+	}
+
 	
 }

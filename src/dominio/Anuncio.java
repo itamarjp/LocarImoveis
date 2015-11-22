@@ -1,9 +1,5 @@
 package dominio;
 
-/*
- * @author Eduardo V. Rocha
- */
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -34,6 +30,13 @@ public class Anuncio implements Serializable{
 	private BigDecimal vlrLocacao;
 	private Date dataIni;
 	private Date dataFim;
+
+	public enum EstadoAnuncio {
+	    Ativo,
+	    Pendente,
+	    Desativado,
+	};	
+	private EstadoAnuncio Status = EstadoAnuncio.Pendente;
 	
 	@ManyToOne
 	@JoinColumn(name="usuario")
@@ -59,7 +62,7 @@ public class Anuncio implements Serializable{
 	}
 
 	public Anuncio(Integer codAnuncio, String bairro, String cidade, String descricao, BigDecimal vlrLocacao,
-			Date dataIni, Date dataFim, Usuario usuario) {
+			Date dataIni, Date dataFim,EstadoAnuncio Estado,  Usuario usuario) {
 		this.codAnuncio = codAnuncio;
 		this.bairro = bairro;
 		this.cidade = cidade;
@@ -68,6 +71,7 @@ public class Anuncio implements Serializable{
 		this.dataIni = dataIni;
 		this.dataFim = dataFim;
 		this.usuario = usuario;
+		this.Status=Estado;
 		this.favoritos = new ArrayList<>();
 		this.questoes = new ArrayList<>();
 		this.horariosvisitas = new ArrayList<>();
@@ -76,6 +80,14 @@ public class Anuncio implements Serializable{
 
 	public Integer getCodAnuncio() {
 		return codAnuncio;
+	}	
+	
+	public EstadoAnuncio getStatus() {
+		return Status;
+	}
+
+	public void setStatus(EstadoAnuncio status) {
+		Status = status;
 	}
 
 	public void setCodAnuncio(Integer codAnuncio) {
@@ -202,10 +214,13 @@ public class Anuncio implements Serializable{
 		this.fotos.remove(x);
 	}
 
+	
 	@Override
 	public String toString() {
 		return "Anuncio [codAnuncio=" + codAnuncio + ", bairro=" + bairro + ", cidade=" + cidade + ", descricao="
-				+ descricao + ", vlrLocacao=" + vlrLocacao + ", dataIni=" + dataIni + ", dataFim=" + dataFim + "]";
+				+ descricao + ", vlrLocacao=" + vlrLocacao + ", dataIni=" + dataIni + ", dataFim=" + dataFim
+				+ ", Status=" + Status + ", usuario=" + usuario + ", favoritos=" + favoritos + ", questoes=" + questoes
+				+ ", horariosvisitas=" + horariosvisitas + ", fotos=" + fotos + "]";
 	}
 
 	@Override

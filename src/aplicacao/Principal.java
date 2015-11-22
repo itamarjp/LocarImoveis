@@ -7,6 +7,7 @@ import dominio.Anuncio;
 import dominio.Foto;
 import dominio.Locacao;
 import dominio.Usuario;
+import dominio.Anuncio.EstadoAnuncio;
 import servico.AnuncioServico;
 import servico.FotoServico;
 import servico.LocacaoServico;
@@ -28,7 +29,7 @@ public class Principal {
         
         AnuncioServico as = ServicoFactory.criarAnuncioServico();
         
-        Anuncio an1 =  new Anuncio(null, "bairro", "cidade", "descricao", new BigDecimal(1), new Date(), new Date(), usr1);
+        Anuncio an1 =  new Anuncio(null, "bairro", "cidade", "descricao", new BigDecimal(1), new Date(), new Date(),EstadoAnuncio.Pendente , usr1);
         as.inserirAtualizar(an1);
         
    

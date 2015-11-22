@@ -1,7 +1,5 @@
 package dao;
 
-import dao.UsuarioDao;
-
 import dao.impl.*;
 
 public class DaoFactory {
@@ -23,6 +21,10 @@ public class DaoFactory {
 
 	public static LocacaoDao criarLocacaoDao() {
 		return new LocacaoDaoImpl();
+	}
+	
+	public static QuestaoDao criarQuestaoDao() {
+		return new QuestaoDaoImpl();
 	}
 
 	

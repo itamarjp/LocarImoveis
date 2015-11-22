@@ -1,8 +1,5 @@
 package dominio;
 
-/**
- * @author Neirivon Elias Cardoso
- */
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -25,45 +22,51 @@ public class HorarioVisita implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="anuncio")
 	private Anuncio anuncio;
-
+	private String Observacao;
+	
+	
 	public HorarioVisita() {
+		super();
 	}
-
-	public HorarioVisita(Integer codHorarioVisita, Anuncio anuncio) {
+	
+	public HorarioVisita(Integer codHorarioVisita, Anuncio anuncio, String observacao) {
 		super();
 		this.codHorarioVisita = codHorarioVisita;
 		this.anuncio = anuncio;
+		Observacao = observacao;
 	}
-
 	public Integer getCodHorarioVisita() {
 		return codHorarioVisita;
 	}
-
 	public void setCodHorarioVisita(Integer codHorarioVisita) {
 		this.codHorarioVisita = codHorarioVisita;
 	}
-
 	public Anuncio getAnuncio() {
 		return anuncio;
 	}
-
 	public void setAnuncio(Anuncio anuncio) {
 		this.anuncio = anuncio;
 	}
-
+	public String getObservacao() {
+		return Observacao;
+	}
+	public void setObservacao(String observacao) {
+		Observacao = observacao;
+	}
 	@Override
 	public String toString() {
-		return "HorarioVisita [codHorarioVisita=" + codHorarioVisita + "]";
+		return "HorarioVisita [codHorarioVisita=" + codHorarioVisita + ", anuncio=" + anuncio + ", Observacao="
+				+ Observacao + "]";
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((Observacao == null) ? 0 : Observacao.hashCode());
+		result = prime * result + ((anuncio == null) ? 0 : anuncio.hashCode());
 		result = prime * result + ((codHorarioVisita == null) ? 0 : codHorarioVisita.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -73,6 +76,16 @@ public class HorarioVisita implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		HorarioVisita other = (HorarioVisita) obj;
+		if (Observacao == null) {
+			if (other.Observacao != null)
+				return false;
+		} else if (!Observacao.equals(other.Observacao))
+			return false;
+		if (anuncio == null) {
+			if (other.anuncio != null)
+				return false;
+		} else if (!anuncio.equals(other.anuncio))
+			return false;
 		if (codHorarioVisita == null) {
 			if (other.codHorarioVisita != null)
 				return false;
@@ -80,4 +93,9 @@ public class HorarioVisita implements Serializable{
 			return false;
 		return true;
 	}
+	
+
+	
+
+
 }

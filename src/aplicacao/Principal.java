@@ -6,11 +6,13 @@ import java.util.Date;
 import dominio.Anuncio;
 import dominio.Foto;
 import dominio.Locacao;
+import dominio.Questao;
 import dominio.Usuario;
 import dominio.Anuncio.EstadoAnuncio;
 import servico.AnuncioServico;
 import servico.FotoServico;
 import servico.LocacaoServico;
+import servico.QuestaoServico;
 import servico.ServicoFactory;
 import servico.UsuarioServico;
 
@@ -43,6 +45,12 @@ public class Principal {
         Locacao l1 = new Locacao(null, new Date(), 1, 1, usr1, usr2);
 
         ls.inserirAtualizar(l1);
+        
+        QuestaoServico qs = ServicoFactory.criarQuestaoServico();
+        
+        Questao q1 = new Questao(null, "Ainda esta disponivel ?", "", an1, usr2);
+        qs.inserirAtualizar(q1);
+        
 
 		System.out.println("Bye");
 

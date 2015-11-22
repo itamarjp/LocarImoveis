@@ -1,8 +1,5 @@
 package dominio;
 
-/**
- * @author Renzo Rodrigues
- */
 import java.io.Serializable;
 
 import javax.persistence.Entity;

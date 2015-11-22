@@ -18,6 +18,9 @@ public class ServicoFactory {
 	public static LocacaoServico criarLocacaoServico() {
 		return new LocacaoServicoImpl();
 	}
+	public static QuestaoServico criarQuestaoServico() {
+		return new QuestaoServicoImpl();
+	}
 	
 }
 

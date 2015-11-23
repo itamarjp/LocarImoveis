@@ -4,15 +4,17 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import dominio.Anuncio;
+import dominio.Anuncio.EstadoAnuncio;
+import dominio.Favorito;
 import dominio.Foto;
+import dominio.HorarioVisita;
 import dominio.Locacao;
 import dominio.Questao;
 import dominio.Usuario;
-import dominio.Anuncio.EstadoAnuncio;
-import dominio.Favorito;
 import servico.AnuncioServico;
 import servico.FavoritoServico;
 import servico.FotoServico;
+import servico.HorarioVisitaServico;
 import servico.LocacaoServico;
 import servico.QuestaoServico;
 import servico.ServicoFactory;
@@ -57,8 +59,14 @@ public class Principal {
         Favorito fav1 = new Favorito(null, an1, usr1);
         FavS.inserirAtualizar(fav1);
         
+        HorarioVisitaServico HVs = ServicoFactory.criarHorarioVisitaServico();
+        HorarioVisita hhv1 = new HorarioVisita(null, an1, "Disponivel as 12h", new Date());
+        HVs.inserirAtualizar(hhv1);
+        
+        
+        
 		System.out.println("Bye");
-
+		System.exit(0);
 	}
 
 }

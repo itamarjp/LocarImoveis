@@ -1,6 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,18 +24,36 @@ public class HorarioVisita implements Serializable{
 	@JoinColumn(name="anuncio")
 	private Anuncio anuncio;
 	private String Observacao;
-	
+	private Date Horario;
 	
 	public HorarioVisita() {
 		super();
 	}
 	
-	public HorarioVisita(Integer codHorarioVisita, Anuncio anuncio, String observacao) {
+	
+	
+	
+	public HorarioVisita(Integer codHorarioVisita, Anuncio anuncio, String observacao, Date horario) {
 		super();
 		this.codHorarioVisita = codHorarioVisita;
 		this.anuncio = anuncio;
 		Observacao = observacao;
+		Horario = horario;
 	}
+
+
+
+
+	public Date getHorario() {
+		return Horario;
+	}
+
+
+	public void setHorario(Date horario) {
+		Horario = horario;
+	}
+
+
 	public Integer getCodHorarioVisita() {
 		return codHorarioVisita;
 	}
@@ -53,11 +72,18 @@ public class HorarioVisita implements Serializable{
 	public void setObservacao(String observacao) {
 		Observacao = observacao;
 	}
+
+	
+	
 	@Override
 	public String toString() {
 		return "HorarioVisita [codHorarioVisita=" + codHorarioVisita + ", anuncio=" + anuncio + ", Observacao="
-				+ Observacao + "]";
+				+ Observacao + ", Horario=" + Horario + "]";
 	}
+
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -30,6 +30,4 @@ public class DaoFactory {
 	public static FavoritoDao criarFavoritoDao() {
 		return new FavoritoDaoImpl();
 	}
-
-	
 }

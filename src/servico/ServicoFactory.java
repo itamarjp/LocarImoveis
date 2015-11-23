@@ -25,6 +25,10 @@ public class ServicoFactory {
 		return new FavoritoServicoImpl();
 	}
 
+	public static HorarioVisitaServico criarHorarioVisitaServico() {
+		return new HorarioVisitaServicoImpl();
+	}
+
 	
 }
 

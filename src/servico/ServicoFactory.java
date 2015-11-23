@@ -21,6 +21,10 @@ public class ServicoFactory {
 	public static QuestaoServico criarQuestaoServico() {
 		return new QuestaoServicoImpl();
 	}
+	public static FavoritoServico criarFavoritoServico() {
+		return new FavoritoServicoImpl();
+	}
+
 	
 }
 

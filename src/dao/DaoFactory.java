@@ -27,5 +27,9 @@ public class DaoFactory {
 		return new QuestaoDaoImpl();
 	}
 
+	public static FavoritoDao criarFavoritoDao() {
+		return new FavoritoDaoImpl();
+	}
+
 	
 }

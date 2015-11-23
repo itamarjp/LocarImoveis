@@ -9,7 +9,9 @@ import dominio.Locacao;
 import dominio.Questao;
 import dominio.Usuario;
 import dominio.Anuncio.EstadoAnuncio;
+import dominio.Favorito;
 import servico.AnuncioServico;
+import servico.FavoritoServico;
 import servico.FotoServico;
 import servico.LocacaoServico;
 import servico.QuestaoServico;
@@ -51,7 +53,10 @@ public class Principal {
         Questao q1 = new Questao(null, "Ainda esta disponivel ?", "", an1, usr2);
         qs.inserirAtualizar(q1);
         
-
+        FavoritoServico FavS = ServicoFactory.criarFavoritoServico();
+        Favorito fav1 = new Favorito(null, an1, usr1);
+        FavS.inserirAtualizar(fav1);
+        
 		System.out.println("Bye");
 
 	}

@@ -16,22 +16,25 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="tb_anuncios")
 public class Anuncio implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codAnuncio;
 	
 	private String bairro;
 	private String cidade;
 	private String descricao;
 	private BigDecimal vlrLocacao;
+	@Temporal(TemporalType.DATE)
 	private Date dataIni;
-	private Date dataFim;
+	@Temporal(TemporalType.DATE)
+	Date dataFim;
 
 	public enum EstadoAnuncio {
 	    Ativo,

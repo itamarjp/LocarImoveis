@@ -10,20 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="tb_horariosvisitas")
 public class HorarioVisita implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codHorarioVisita;
 	
 	@ManyToOne
 	@JoinColumn(name="anuncio")
 	private Anuncio anuncio;
 	private String Observacao;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date Horario;
 	
 	public HorarioVisita() {

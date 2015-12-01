@@ -10,16 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="tb_locacao")
 public class Locacao implements Serializable {
 	private static final long serialVersionUID = 1L;
     
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codLocacao;
-    
+	@Temporal(TemporalType.DATE)
 	private Date dataLocacao;
     private Integer locarComoLocador;
     private Integer locarComoLocatario;

@@ -2,11 +2,11 @@ package dao.impl;
 
 import java.util.List;
 
-import dao.impl.EM;
-import dao.UsuarioDao;
-import dominio.Usuario;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
+import dao.UsuarioDao;
+import dominio.Usuario;
 
 public class UsuarioDaoImpl implements UsuarioDao{
 
@@ -34,6 +34,17 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public Usuario buscar(int CodUsuario) {
 		return em.find(Usuario.class, CodUsuario);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override	
+	public List<Usuario> BuscarUsuarioPorEmailSenha(String Usuario, String Senha){
+		String jpql = "SELECT x FROM Usuario x WHERE x.email = :p1 AND x.senha = :p2";
+		Query query = em.createQuery(jpql);
+		query.setParameter("p1", Usuario);
+		query.setParameter("p2", Senha);
+		return query.getResultList();
+	}
+
 	
 	@SuppressWarnings("unchecked")
 	@Override

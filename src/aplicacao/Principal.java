@@ -30,13 +30,25 @@ public class Principal {
         Usuario usr1 = new Usuario(null, "Itamar","000", "34-123", "itamar@ispbrasil.com.br",  "x");
         us.inserirAtualizar(usr1);
         
-        Usuario usr2 = new Usuario(null, "xiquinho","000", "34-123", "xiquinho@iftm.edu.br",  "x");
+        Usuario usr2 = new Usuario(null, "Francisco","000", "34-123", "franciscolopesdacunha@gmail.com",  "x");
         us.inserirAtualizar(usr2);
         
         AnuncioServico as = ServicoFactory.criarAnuncioServico();
+        String desc= "Alugo apartamento térreo, com área externa, 2 quartos, 1 vaga na garagem, não possui armários nem guarda roupas embutido, porteiro 24 horas, ônibus para na porta do condomínio"; 
         
-        Anuncio an1 =  new Anuncio(null, "bairro", "cidade", "descricao", new BigDecimal(1), new Date(), new Date(),EstadoAnuncio.Pendente , usr1);
+        Anuncio an1 =  new Anuncio(null, "Santa Monica", "Uberlandia", desc, new BigDecimal("650.00"), new Date(), new Date(),EstadoAnuncio.Pendente , usr1);
         as.inserirAtualizar(an1);
+        
+        desc= "Alugo ap MRV 2/4 armários planejados na cozinha e no banheiro, mais box blindex no banheiro."; 
+        
+        Anuncio an2 =  new Anuncio(null, "Shopping Park", "Uberlandia", desc, new BigDecimal("450.00"), new Date(), new Date(),EstadoAnuncio.Pendente , usr2);
+        as.inserirAtualizar(an2);
+        
+        desc= "2/4 sala 2 ambientes cozinha área de serviço privativa banheiro com box, armário espelho e ducha dupla."; 
+        
+        Anuncio an3 =  new Anuncio(null, "Jardim Holanda", "Uberlandia", desc, new BigDecimal("550.00"), new Date(), new Date(),EstadoAnuncio.Pendente , usr1);
+        as.inserirAtualizar(an3);
+        
         
    
         FotoServico fs = ServicoFactory.criarFotoServico();

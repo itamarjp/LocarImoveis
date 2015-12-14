@@ -10,6 +10,8 @@ import dao.AnuncioDao;
 import dao.DaoFactory;
 import dao.impl.EM;
 import dominio.Anuncio;
+import dominio.Favorito;
+import dominio.Foto;
 import servico.AnuncioServico;
 
 public class AnuncioServicoImpl implements AnuncioServico {
@@ -19,12 +21,6 @@ public class AnuncioServicoImpl implements AnuncioServico {
 		dao = DaoFactory.criarAnuncioDao();
 	}
 
-	@Override
-	public void inserirAtualizar(Anuncio x) {
-		EM.getLocalEm().getTransaction().begin();
-		dao.inserirAtualizar(x);
-		EM.getLocalEm().getTransaction().commit();
-	}
 	
 	@Override
 	public void excluir(Anuncio x) {
@@ -34,20 +30,21 @@ public class AnuncioServicoImpl implements AnuncioServico {
 	}
 	
 	@Override
-	public Anuncio buscar(int id) {
-		return dao.buscar(id);
+	public void inserirAtualizar(Anuncio x) {
+		EM.getLocalEm().getTransaction().begin();
+		dao.inserirAtualizar(x);
+		EM.getLocalEm().getTransaction().commit();
 	}
-
+	
 	@Override
-	public void inserirAnuncio(Anuncio x) {
-		// TODO Auto-generated method stub
-		
+	public Anuncio buscar(int codAnuncio) {
+		return dao.buscar(codAnuncio);
 	}
-
+	
 	@Override
 	public List<Anuncio> buscarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.buscarTodos();
 	}
+	
 	
 }

@@ -11,5 +11,6 @@ public interface UsuarioDao {
 	public void excluir(Usuario x);
 	public Usuario buscar(int x);
 	public List<Usuario> buscarTodos();
+	List<Usuario> BuscarUsuarioPorEmailSenha(String Usuario, String Senha);
 
 }

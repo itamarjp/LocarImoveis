@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -29,6 +30,7 @@ public class Anuncio implements Serializable{
 	
 	private String bairro;
 	private String cidade;
+	@Column(length=8000)    
 	private String descricao;
 	private BigDecimal vlrLocacao;
 	@Temporal(TemporalType.DATE)

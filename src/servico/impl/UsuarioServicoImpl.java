@@ -41,5 +41,9 @@ public class UsuarioServicoImpl implements UsuarioServico {
 	public List<Usuario> buscarTodos() {
 		return dao.buscarTodos();
 	}
+	public List<Usuario> BuscarUsuarioPorEmailSenha(String Usuario, String Senha){
+		return dao.BuscarUsuarioPorEmailSenha( Usuario,  Senha);
+	}
+
 	
 }

@@ -1,6 +1,9 @@
 package aplicacao;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import dominio.Anuncio;
@@ -22,22 +25,91 @@ import servico.UsuarioServico;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  throws ParseException {
 		
 		System.out.println("Alo");
+		// instancia minima que esta no desenho feito pelo Leandro Mendes.
+		
 		UsuarioServico us = ServicoFactory.criarUsuarioServico();
 		
-        Usuario usr1 = new Usuario(null, "Itamar","000", "34-123", "itamar@ispbrasil.com.br",  "x");
+		Usuario usr1 = new Usuario(null, "Leandro Locador","111.111.111-11", "349999-9999", "email@email.com",  "123456");
         us.inserirAtualizar(usr1);
         
-        Usuario usr2 = new Usuario(null, "Francisco","000", "34-123", "franciscolopesdacunha@gmail.com",  "x");
+        Usuario usr2 = new Usuario(null, "Leandro Locatário","222.222.222-22", "349999-99990", "email2@email.com",  "654321");
         us.inserirAtualizar(usr2);
+        		
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        
+        String strdata1 = "01/01/2015";
+        String strdata2 = "15/01/2015";
+        String strdatavisita = "31/12/2015";
+        String strd1 = "01/01/2015";
+    
+        Date data1 = f.parse(strdata1);
+        Date data2 =  f.parse(strdata2);
+        Date datavisita = f.parse(strdatavisita);
+        Date d1 = f.parse(strd1);
         
         AnuncioServico as = ServicoFactory.criarAnuncioServico();
-        String desc= "Alugo apartamento térreo, com área externa, 2 quartos, 1 vaga na garagem, não possui armários nem guarda roupas embutido, porteiro 24 horas, ônibus para na porta do condomínio"; 
-        
-        Anuncio an1 =  new Anuncio(null, "Santa Monica", "Uberlandia", desc, new BigDecimal("650.00"), new Date(), new Date(),EstadoAnuncio.Pendente , usr1);
+        String desc= "Casa em condominio"; 
+        Anuncio an1 =  new Anuncio(null, "Centro", "Uberlandia", desc, new BigDecimal("800.00"), data1,  data2,EstadoAnuncio.Ativo , usr1);
         as.inserirAtualizar(an1);
+        
+        HorarioVisitaServico HVs = ServicoFactory.criarHorarioVisitaServico();
+        HorarioVisita hhv1 = new HorarioVisita(null, an1, "Quem chegar primeiro ligue para a contra-parte", datavisita);
+        HVs.inserirAtualizar(hhv1);
+        
+		
+        FotoServico fs = ServicoFactory.criarFotoServico();
+        
+        Foto f1 = new Foto(null, "/Foto1.jpg", an1);
+        Foto f2 = new Foto(null, "/Foto2.jpg", an1);
+        Foto f3 = new Foto(null, "/Foto3.jpg", an1);
+        Foto f4 = new Foto(null, "/Foto4.jpg", an1);
+        Foto f5 = new Foto(null, "/Foto5.jpg", an1);
+        Foto f6 = new Foto(null, "/Foto6.jpg", an1);
+        
+        fs.inserirAtualizar(f1);
+        fs.inserirAtualizar(f2);
+        fs.inserirAtualizar(f3);
+        fs.inserirAtualizar(f4);
+        fs.inserirAtualizar(f5);
+        fs.inserirAtualizar(f6);
+     	
+        
+        FavoritoServico FavS = ServicoFactory.criarFavoritoServico();
+        Favorito fav1 = new Favorito(null, an1, usr2);
+        FavS.inserirAtualizar(fav1);
+        
+        QuestaoServico qs = ServicoFactory.criarQuestaoServico();
+        Questao q1 = new Questao(null, "A casa possui quantas vagas de garagem?", "", an1, usr2);
+        qs.inserirAtualizar(q1);
+		q1.setResposta("Possui 2 vagas");
+		qs.inserirAtualizar(q1);
+		
+		LocacaoServico ls = ServicoFactory.criarLocacaoServico();
+        Locacao l1 = new Locacao(null,d1, 1, 1, usr1, usr2);
+        ls.inserirAtualizar(l1);
+        
+        System.out.println("Bye");
+		System.exit(0);
+		// fim instancia minima que esta no desenho feito pelo Leandro Mendes.
+		
+		
+		
+		UsuarioServico us1 = ServicoFactory.criarUsuarioServico();
+		
+		Usuario Usr1 = new Usuario(null, "Itamar","000", "34-123", "itamar@ispbrasil.com.br",  "x");
+        us1.inserirAtualizar(Usr1);
+        
+        Usuario Usr2 = new Usuario(null, "Francisco","000", "34-123", "franciscolopesdacunha@gmail.com",  "x");
+        us1.inserirAtualizar(Usr2);
+        
+        AnuncioServico as1 = ServicoFactory.criarAnuncioServico();
+        String desc1= "Alugo apartamento térreo, com área externa, 2 quartos, 1 vaga na garagem, não possui armários nem guarda roupas embutido, porteiro 24 horas, ônibus para na porta do condomínio"; 
+        
+        Anuncio ans1 =  new Anuncio(null, "Santa Monica", "Uberlandia", desc, new BigDecimal("650.00"), new Date(), new Date(),EstadoAnuncio.Pendente , usr1);
+        as1.inserirAtualizar(ans1);
         
         desc= "Alugo ap MRV 2/4 armários planejados na cozinha e no banheiro, mais box blindex no banheiro."; 
         
@@ -51,29 +123,26 @@ public class Principal {
         
         
    
-        FotoServico fs = ServicoFactory.criarFotoServico();
+        FotoServico fs1 = ServicoFactory.criarFotoServico();
         
-        Foto f1 = new Foto(null, "/Foto.img", an1);
-        fs.inserirAtualizar(f1);
+        Foto foto1 = new Foto(null, "/Foto.jpg", ans1);
+        fs.inserirAtualizar(foto1);
      
-        LocacaoServico ls = ServicoFactory.criarLocacaoServico();
+        LocacaoServico ls1 = ServicoFactory.criarLocacaoServico();
+        Locacao loc1 = new Locacao(null, new Date(), 1, 1, Usr1, Usr2);
+        ls1.inserirAtualizar(loc1);
         
-        Locacao l1 = new Locacao(null, new Date(), 1, 1, usr1, usr2);
-
-        ls.inserirAtualizar(l1);
+        QuestaoServico qs1 = ServicoFactory.criarQuestaoServico();
+        Questao quest1 = new Questao(null, "Ainda esta disponivel ?", "", ans1, Usr2);
+        qs1.inserirAtualizar(quest1);
         
-        QuestaoServico qs = ServicoFactory.criarQuestaoServico();
+        FavoritoServico FavS1 = ServicoFactory.criarFavoritoServico();
+        Favorito favo1 = new Favorito(null, ans1, Usr1);
+        FavS1.inserirAtualizar(favo1);
         
-        Questao q1 = new Questao(null, "Ainda esta disponivel ?", "", an1, usr2);
-        qs.inserirAtualizar(q1);
-        
-        FavoritoServico FavS = ServicoFactory.criarFavoritoServico();
-        Favorito fav1 = new Favorito(null, an1, usr1);
-        FavS.inserirAtualizar(fav1);
-        
-        HorarioVisitaServico HVs = ServicoFactory.criarHorarioVisitaServico();
-        HorarioVisita hhv1 = new HorarioVisita(null, an1, "Disponivel as 12h", new Date());
-        HVs.inserirAtualizar(hhv1);
+        HorarioVisitaServico HVs1 = ServicoFactory.criarHorarioVisitaServico();
+        HorarioVisita hhvi1 = new HorarioVisita(null, an1, "Disponivel as 12h", new Date());
+        HVs1.inserirAtualizar(hhvi1);
         
         
         
